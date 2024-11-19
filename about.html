@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Us - Tuition Centre, quality education for all ages.">
+    <meta name="keywords" content="About Tuition Centre, Education, Tutors">
+    <meta name="author" content="Aiman, Ucu, Izzah">
+    
+    <title>About Us | Tuition Centre</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- External CSS Link -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="images/tuition.jpg" alt="Tuition Centre Logo">
+        </div>
+        <!-- Menu Section -->
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="tutors.html">Tutors</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+  
+        
+        <select id="options" onchange="navigateToPage()">
+            <option value="">Select a page...</option>
+            <option value="index.html">Home</option>
+            <option value="about.html">About Us</option>
+            <option value="courses.html">Courses</option>
+            <option value="tutors.html">Tutors</option>
+            <option value="contact.html">Contact Us</option>
+        </select>
+        
+        <script>
+        function navigateToPage() {
+            const select = document.getElementById("options");
+            const selectedValue = select.value;
+            if (selectedValue) {
+                window.location.href = selectedValue;
+            }
+        }
+        </script>
+        
+    </nav>
+
+    <!-- Marquee showing greeting, date, and time -->
+    <div id="marquee">
+        <span id="greetingMessage"></span>
+    </div>
+
+
+    <script>
+        // Function to get current greeting based on the time
+        function getGreeting() {
+            const hour = new Date().getHours();
+            if (hour < 12) {
+                return "Good Morning";
+            } else if (hour < 18) {
+                return "Good Afternoon";
+            } else {
+                return "Good Evening";
+            }
+        }
+
+        // Function to get current date and time
+        function getCurrentDateTime() {
+            const now = new Date();
+            const date = now.toLocaleDateString(); // Get date
+            const time = now.toLocaleTimeString(); // Get time
+            return `${date} ${time}`;
+        }
+
+        // Function to update the marquee message
+        function updateMarquee() {
+            const greeting = getGreeting();
+            const dateTime = getCurrentDateTime();
+            const message = `${greeting}! Current time is: ${dateTime}`;
+            document.getElementById('greetingMessage').textContent = message;
+        }
+
+        // Update marquee every second to reflect time changes
+        setInterval(updateMarquee, 1000);
+    </script>
+
+
+    <!-- Header Section -->
+    <header class="about-header">
+        <h1>About Us</h1>
+        <p class="header-description">Learn more about our journey, mission, and values.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- About Section -->
+        <section id="about-us">
+            <h2>Who We Are</h2>
+            <p>
+                We are a dedicated tuition centre providing personalized learning experiences to students of all ages. Our goal is to nurture, motivate, and guide students towards academic success.
+            </p>
+            <p>
+                Established in 2010, we have continuously strived to offer a wide range of courses, including primary, secondary, and preparatory classes for competitive exams. 
+            </p>
+        </section>
+
+        <!-- Mission Section -->
+        <section id="mission">
+            <h2>Our Mission</h2>
+            <p>
+                Our mission is to empower students with knowledge and skills that help them excel academically and build a strong foundation for their future.
+            </p>
+        </section>
+
+        <!-- Vision Section -->
+        <section id="vision">
+            <h2>Our Vision</h2>
+            <p>
+                To be a leading tuition centre known for high-quality education, dedicated tutors, and a supportive learning environment.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2023 Tuition Website. All rights reserved.</p>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="js/lib/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

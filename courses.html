@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our wide range of courses tailored to help you excel academically.">
+    <meta name="keywords" content="Tuition Centre Courses, Education, Learning">
+    <meta name="author" content="Aiman, Ucu, Izzah">
+    
+    <title>Courses | Tuition Centre</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- External CSS Link -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="images/tuition.jpg" alt="Tuition Centre Logo">
+        </div>
+        <!-- Menu Section -->
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="courses.html" class="active">Courses</a></li>
+            <li><a href="tutors.html">Tutors</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        
+        <select id="options" onchange="navigateToPage()">
+            <option value="">Select a page...</option>
+            <option value="index.html">Home</option>
+            <option value="about.html">About Us</option>
+            <option value="courses.html">Courses</option>
+            <option value="tutors.html">Tutors</option>
+            <option value="contact.html">Contact Us</option>
+        </select>
+        
+        <script>
+        function navigateToPage() {
+            const select = document.getElementById("options");
+            const selectedValue = select.value;
+            if (selectedValue) {
+                window.location.href = selectedValue;
+            }
+        }
+        </script>
+        
+    </nav>
+
+    <!-- Marquee showing greeting, date, and time -->
+    <div id="marquee">
+        <span id="greetingMessage"></span>
+    </div>
+
+
+    <script>
+        // Function to get current greeting based on the time
+        function getGreeting() {
+            const hour = new Date().getHours();
+            if (hour < 12) {
+                return "Good Morning";
+            } else if (hour < 18) {
+                return "Good Afternoon";
+            } else {
+                return "Good Evening";
+            }
+        }
+
+        // Function to get current date and time
+        function getCurrentDateTime() {
+            const now = new Date();
+            const date = now.toLocaleDateString(); // Get date
+            const time = now.toLocaleTimeString(); // Get time
+            return `${date} ${time}`;
+        }
+
+        // Function to update the marquee message
+        function updateMarquee() {
+            const greeting = getGreeting();
+            const dateTime = getCurrentDateTime();
+            const message = `${greeting}! Current time is: ${dateTime}`;
+            document.getElementById('greetingMessage').textContent = message;
+        }
+
+        // Update marquee every second to reflect time changes
+        setInterval(updateMarquee, 1000);
+    </script>
+
+
+    <!-- Header Section -->
+    <header class="courses-header">
+        <h1>Our Courses</h1>
+        <p>Discover a variety of courses designed to cater to your learning needs.</p>
+    </header>
+
+    <div style="text-align: center; margin-top: 50px;">
+        <img id="slideshow" src="image1.jpg" width="800" height="600">
+        <br>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+    
+    <script>
+    let images = ["image1.jpg", "image2.jpg"];
+    let index = 0;
+    
+    function nextSlide() {
+        index = (index + 1) % images.length;
+        document.getElementById("slideshow").src = images[index];
+    }
+    </script>
+    
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Courses Information Section -->
+        <section id="courses-info">
+            <!-- Table Structure using div elements -->
+            <div class="table">
+                <!-- Row for Subjects -->
+                <div class="table-row">
+                    <div class="table-header">SUBJECT</div>
+                    <div class="table-cell">BM</div>
+                    <div class="table-cell">ENGLISH</div>
+                    <div class="table-cell">MATH</div>
+                    <div class="table-cell">SCIENCE</div>
+                    <div class="table-cell">HISTORY</div>
+                    <div class="table-cell">PHYSICS</div>
+                    <div class="table-cell">CHEMISTRY</div>
+                    <div class="table-cell">BIOLOGY</div>
+                    <div class="table-cell">ADD MATH</div>
+                    <div class="table-cell">ACCOUNT</div>
+                </div>
+
+                <!-- Row for Rates -->
+                <div class="table-row">
+                    <div class="table-header">RATES</div>
+                    <div class="table-cell">STANDARD 1-6 FROM RM20/HOUR</div>
+                    <div class="table-cell">FORM 1-3(PMR) FROM RM30/HOUR</div>
+                    <div class="table-cell">FORM 4-5(SPM) FROM RM40/HOUR</div>
+                    <div class="table-cell">DIPLOMA/STPM FROM RM80/HOUR</div>
+                </div>
+
+                <!-- Row for Schedules -->
+                <div class="table-row">
+                    <div class="table-header">SCHEDULES</div>
+                    <div class="table-cell">
+                        HOME TUITION: MONDAY - SATURDAY (3-5PM) (8-10PM)
+                    </div>
+                    <div class="table-cell">
+                        IN CLASSROOM: MONDAY – SATURDAY (4-6PM) (8-10PM)
+                    </div>
+                    <div class="table-cell">
+                        ONLINE CLASSES: BASED ON TEACHER’S AVAILABILITY AND REQUEST FROM STUDENT
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2023 Tuition Website. All rights reserved.</p>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="js/lib/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+</body>
+</html>
